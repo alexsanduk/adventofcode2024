@@ -2,7 +2,8 @@ import sys
 from typing import List
 from copy import deepcopy
 
-def is_safe_pair(report: List[int], ix: int, skip_ix: int)->bool:
+
+def is_safe_pair(report: List[int], ix: int, skip_ix: int) -> bool:
     left_ix = ix
     right_ix = ix + 1
     val_left = report[left_ix]
@@ -21,6 +22,7 @@ def is_safe_pair(report: List[int], ix: int, skip_ix: int)->bool:
             val_right = val_left + 1
     return 1 <= val_right - val_left <= 3
 
+
 def test_is_safe_pair():
     report = [100, 3, 5]
     assert is_safe_pair(report, 0, 0)
@@ -30,6 +32,7 @@ def test_is_safe_pair():
     report = [3, 100, 5]
     assert is_safe_pair(report, 0, 1)
     assert is_safe_pair(report, 1, 1)
+
 
 def test_not_is_safe_pair():
     report = [100, 3, 5]
@@ -42,7 +45,7 @@ def test_not_is_safe_pair():
     assert not is_safe_pair(report, 1, 0)
 
 
-def is_safe_increasing(report: List[int])->bool:
+def is_safe_increasing(report: List[int]) -> bool:
     for skip_ix in range(len(report)):
         all_safe = True
         for ix in range(len(report) - 1):
@@ -66,15 +69,16 @@ def test_is_safe_increasing_no_bad_levels():
     assert is_safe_increasing([1, 5, 2])
     assert is_safe_increasing([1, 5, 7])
 
+
 def test_not_is_safe_increasing():
     assert not is_safe_increasing([1, 1, 1])
     assert not is_safe_increasing([1, 1, 6])
     assert not is_safe_increasing([1, 0, -1])
     assert not is_safe_increasing([1, 100, 200])
-    assert not is_safe_increasing([1,2,7,8,9])
+    assert not is_safe_increasing([1, 2, 7, 8, 9])
 
 
-def solution(fname: str)->int:
+def solution(fname: str) -> int:
     count_safe = 0
     with open(fname) as f:
         for line in f:
@@ -85,8 +89,9 @@ def solution(fname: str)->int:
                 count_safe += 1
     return count_safe
 
-if __name__ == '__main__':
-    fname = 'test.txt'
+
+if __name__ == "__main__":
+    fname = "test.txt"
     if len(sys.argv) == 2:
         fname = sys.argv[1]
     print(solution(fname))

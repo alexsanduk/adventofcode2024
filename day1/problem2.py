@@ -22,8 +22,8 @@ def test_compute_similarity():
     assert compute_similarity([3, 3, 2], [1, 3, 3]) == 12
 
 
-def solution(fname: str)->int:
-    l1, l2 = [], [] 
+def solution(fname: str) -> int:
+    l1, l2 = [], []
     with open(fname) as f:
         for line in f:
             v1, v2 = line.split()

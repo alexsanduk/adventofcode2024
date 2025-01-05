@@ -15,8 +15,8 @@ def test_compute_distance():
     assert compute_distance([1, 2], [0, 4]) == 3
 
 
-def solution(fname: str)->int:
-    l1, l2 = [], [] 
+def solution(fname: str) -> int:
+    l1, l2 = [], []
     with open(fname) as f:
         for line in f:
             v1, v2 = line.split()
